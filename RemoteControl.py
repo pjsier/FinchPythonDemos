@@ -1,9 +1,9 @@
-from finch_api import Finch
+from lib.finch import Finch
 import curses
 from time import sleep
 
 #Initalize finch
-finch = Finch()
+myFinch = Finch()
 
 """
 Control Finch with keys
@@ -13,37 +13,37 @@ stdscr = curses.initscr()
 curses.cbreak()
 stdscr.keypad(1)
 
-stdscr.addstr(0,10,"Hit 'q' to quit")
+stdscr.addstr(0, 10, "Hit 'q' to quit")
 stdscr.refresh()
 
 key = ''
 while key != ord('q'):
     key = stdscr.getch()
-    stdscr.addch(20,25,key)
+    stdscr.addch(20, 25, key)
     stdscr.refresh()
 
     if key == curses.KEY_UP: 
         stdscr.addstr(1, 20, "Finch goes forward!")
-        finch.wheels(1,1)
+        myFinch.wheels(1, 1)
         sleep(0.1)
-        finch.halt()
+        myFinch.halt()
     elif key == curses.KEY_DOWN: 
         stdscr.addstr(1, 20, "Finch goes backwards!")
-        finch.wheels(-1,-1)
+        myFinch.wheels(-1, -1)
         sleep(0.1)
-        finch.halt()
+        myFinch.halt()
     elif key == curses.KEY_LEFT:
     	stdscr.addstr(1, 20, "Finch goes left!")
-        finch.wheels(0,1)
+        myFinch.wheels(0, 1)
         sleep(0.1)
-        finch.halt()
+        myFinch.halt()
     elif key == curses.KEY_RIGHT:
     	stdscr.addstr(1, 20, "Finch goes right!")	
-        finch.wheels(1,0)
+        myFinch.wheels(1, 0)
         sleep(0.1)
-        finch.halt()
+        myFinch.halt()
 
 curses.endwin()
 
 #Close connection with finch
-finch.close()
+myFinch.close()
