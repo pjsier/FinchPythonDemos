@@ -9,13 +9,6 @@ finch = Finch()
 Control Finch with keys
 """
 
-#Flash light to let user know it's their turn
-for x in range(1,2):
-    finch.led(255,255,255)
-    sleep(0.5)
-    finch.led(0,0,0)
-    sleep(0.5)
-
 stdscr = curses.initscr()
 curses.cbreak()
 stdscr.keypad(1)
