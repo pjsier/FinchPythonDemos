@@ -3,7 +3,7 @@
 ## Quickstart
 
 ```bash
-git clone git@github.com:CoderDojoChi/FinchPythonDemos.git
+git clone https://github.com/CoderDojoChi/FinchPythonDemos.git
 cd FinchPythonDemos
 git submodule init
 git submodule update
