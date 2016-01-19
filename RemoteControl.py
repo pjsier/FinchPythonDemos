@@ -17,7 +17,7 @@ stdscr.addstr(0, 10, "Hit 'q' to quit")
 stdscr.refresh()
 
 key = ''
-padding = "     "
+padding = " " * 5
 while key != ord('q'):
     key = stdscr.getch()
     stdscr.addch(20, 25, key)
