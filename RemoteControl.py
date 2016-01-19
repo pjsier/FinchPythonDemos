@@ -9,37 +9,45 @@ myFinch = Finch()
 Control Finch with keys
 """
 
-stdscr = curses.initscr()
+# Initialize the library. Return a WindowObject which represents the whole screen.
+window = curses.initscr()
 curses.cbreak()
-stdscr.keypad(1)
+window.keypad(1)
 
-stdscr.addstr(0, 10, "Hit 'q' to quit")
-stdscr.refresh()
+window.addstr(0, 0, "Hit 'q' to quit")
+window.move(2, 0)
+window.refresh()
 
 key = ''
 while key != ord('q'):
-    key = stdscr.getch()
-    stdscr.addch(20, 25, key)
-    stdscr.clear()
-    stdscr.addstr(0, 10, "Hit 'q' to quit")
+    key = window.getch()
+    window.addch(2, 0, key)
+    window.refresh()
 
     if key == curses.KEY_UP:
-        stdscr.addstr(1, 20, "Finch goes forward!")
+        window.clrtobot()
+        window.addstr(2, 0, "Finch goes forward!")
         myFinch.wheels(1, 1)
         sleep(0.1)
         myFinch.halt()
+
     elif key == curses.KEY_DOWN:
-        stdscr.addstr(1, 20, "Finch goes backwards!")
+        window.clrtobot()
+        window.addstr(2, 0, "Finch goes backwards!")
         myFinch.wheels(-1, -1)
         sleep(0.1)
         myFinch.halt()
+
     elif key == curses.KEY_LEFT:
-    	stdscr.addstr(1, 20, "Finch goes left!")
+        window.clrtobot()
+        window.addstr(2, 0, "Finch goes left!")
         myFinch.wheels(0, 1)
         sleep(0.1)
         myFinch.halt()
+
     elif key == curses.KEY_RIGHT:
-    	stdscr.addstr(1, 20, "Finch goes right!")
+        window.clrtobot()
+        window.addstr(2, 0, "Finch goes right!")
         myFinch.wheels(1, 0)
         sleep(0.1)
         myFinch.halt()
