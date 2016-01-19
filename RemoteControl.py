@@ -17,29 +17,29 @@ stdscr.addstr(0, 10, "Hit 'q' to quit")
 stdscr.refresh()
 
 key = ''
-padding = " " * 5
 while key != ord('q'):
     key = stdscr.getch()
     stdscr.addch(20, 25, key)
-    stdscr.refresh()
+    stdscr.clear()
+    stdscr.addstr(0, 10, "Hit 'q' to quit")
 
     if key == curses.KEY_UP:
-        stdscr.addstr(1, 20, "Finch goes forward!" + padding)
+        stdscr.addstr(1, 20, "Finch goes forward!")
         myFinch.wheels(1, 1)
         sleep(0.1)
         myFinch.halt()
     elif key == curses.KEY_DOWN:
-        stdscr.addstr(1, 20, "Finch goes backwards!" + padding)
+        stdscr.addstr(1, 20, "Finch goes backwards!")
         myFinch.wheels(-1, -1)
         sleep(0.1)
         myFinch.halt()
     elif key == curses.KEY_LEFT:
-    	stdscr.addstr(1, 20, "Finch goes left!" + padding)
+    	stdscr.addstr(1, 20, "Finch goes left!")
         myFinch.wheels(0, 1)
         sleep(0.1)
         myFinch.halt()
     elif key == curses.KEY_RIGHT:
-    	stdscr.addstr(1, 20, "Finch goes right!" + padding)
+    	stdscr.addstr(1, 20, "Finch goes right!")
         myFinch.wheels(1, 0)
         sleep(0.1)
         myFinch.halt()
